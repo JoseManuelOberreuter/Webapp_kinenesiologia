@@ -49,42 +49,40 @@
                                 <form id="contactForm" action="https://formsubmit.co/paula.arayagarate@gmail.com" method="POST">
                                     <!-- Name input-->
                                     <div class="form-floating mb-3">
-                                        <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
+                                        <input class="form-control" id="name" name="Nombre" type="text" placeholder="Enter your name..." data-sb-validations="required" />
                                         <label for="name">Nombre</label>
                                         <div class="invalid-feedback" data-sb-feedback="name:required">Ingresa un nombre</div>
                                     </div>
                                     <!-- rut address input-->
                                     <div class="form-floating mb-3">
-                                        <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
-                                        <label for="email">Rut</label>
+                                        <input class="form-control" id="rut" name="Rut" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
+                                        <label for="rut">Rut</label>
                                         <div class="invalid-feedback" data-sb-feedback="email:email">Rut invalido</div>
                                     </div>
                                     <!-- Phone number input-->
                                     <div class="form-floating mb-3">
-                                        <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
-                                        <label for="phone">Email</label>
+                                        <input class="form-control" id="email" name="Email" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
+                                        <label for="email">Email</label>
                                         <div class="invalid-feedback" data-sb-feedback="phone:required">Email invalido</div>
                                     </div>
                                     <div class="form-floating mb-3">
-                                        <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
-                                        <label for="phone">Telefono</label>
+                                        <input class="form-control" id="tel" name="Telefono" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
+                                        <label for="tel">Telefono</label>
                                         <div class="invalid-feedback" data-sb-feedback="phone:required">Email invalido</div>
                                     </div>
                                     <div class="form-floating mb-3">
-                                        <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
-                                        <label for="phone">Comuna</label>
+                                        <input class="form-control" id="comuna" name="Comuna" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
+                                        <label for="comuna">Comuna</label>
                                         <div class="invalid-feedback" data-sb-feedback="phone:required">Email invalido</div>
                                     </div>
                                     <!-- Message input-->
                                     <div class="form-floating mb-3">
-                                        <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
+                                        <textarea class="form-control" id="message" name="Motivo consulta" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
                                         <label for="message">Motivo de consulta</label>
                                     </div>
                             
                             
-                            
-
-                                    <div class="d-grid"><button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Enviar</button></div>
+                                    <div class="d-grid"><button class="btn btn-primary btn-lg " id="submitButton" type="submit">Enviar</button></div>
                                 </form>
                             </div>
                         </div>
@@ -98,12 +96,8 @@
 
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
+
         <script src="js/scripts.js"></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     </body>
 </html>
