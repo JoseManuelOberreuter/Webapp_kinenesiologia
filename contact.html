@@ -38,7 +38,7 @@
                 <div class="container px-5">
                     <!-- Contact form-->
                     <div class="bg-light rounded-4 py-5 px-4 px-md-5">
-                        <div class="text-center mb-5">
+                        <div id="titulo_form" class="text-center mb-5">
                             <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 mb-3"><i class="bi bi-envelope"></i></div>
                             <h1 class="fw-bolder">Agendar hora</h1>
                             <p class="lead fw-normal text-muted mb-0">Contacta conmigo para una sesión a domicilio</p>
@@ -49,35 +49,35 @@
                                 <form id="contactForm" action="https://formsubmit.co/paula.arayagarate@gmail.com" method="POST">
                                     <!-- Name input-->
                                     <div class="form-floating mb-3">
-                                        <input class="form-control" id="name" name="Nombre" type="text" placeholder="Enter your name..." data-sb-validations="required" />
+                                        <input class="form-control" id="name" name="Nombre" type="text" placeholder="Enter your name..." required />
                                         <label for="name">Nombre</label>
                                         <div class="invalid-feedback" data-sb-feedback="name:required">Ingresa un nombre</div>
                                     </div>
                                     <!-- rut address input-->
                                     <div class="form-floating mb-3">
-                                        <input class="form-control" id="rut" name="Rut" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
+                                        <input class="form-control" id="rut" name="Rut" type="email" placeholder="name@example.com" required />
                                         <label for="rut">Rut</label>
                                         <div class="invalid-feedback" data-sb-feedback="email:email">Rut invalido</div>
                                     </div>
                                     <!-- Phone number input-->
                                     <div class="form-floating mb-3">
-                                        <input class="form-control" id="email" name="Email" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
+                                        <input class="form-control" id="email" name="Email" type="tel" placeholder="(123) 456-7890" required />
                                         <label for="email">Email</label>
                                         <div class="invalid-feedback" data-sb-feedback="phone:required">Email invalido</div>
                                     </div>
                                     <div class="form-floating mb-3">
-                                        <input class="form-control" id="tel" name="Telefono" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
+                                        <input class="form-control" id="tel" name="Telefono" type="tel" placeholder="(123) 456-7890" required />
                                         <label for="tel">Telefono</label>
                                         <div class="invalid-feedback" data-sb-feedback="phone:required">Email invalido</div>
                                     </div>
                                     <div class="form-floating mb-3">
-                                        <input class="form-control" id="comuna" name="Comuna" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
+                                        <input class="form-control" id="comuna" name="Comuna" type="tel" placeholder="(123) 456-7890" required />
                                         <label for="comuna">Comuna</label>
                                         <div class="invalid-feedback" data-sb-feedback="phone:required">Email invalido</div>
                                     </div>
                                     <!-- Message input-->
                                     <div class="form-floating mb-3">
-                                        <textarea class="form-control" id="message" name="Motivo consulta" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
+                                        <textarea class="form-control" id="message" name="Motivo consulta" type="text" placeholder="Enter your message here..." style="height: 10rem" required></textarea>
                                         <label for="message">Motivo de consulta</label>
                                     </div>
                             
