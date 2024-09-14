@@ -11781,7 +11781,11 @@ html {
   .profile .profile-img {
     position: relative;
   }
-
-
-
 }
+
+@media (max-width: 450px) {
+  .nav-title {
+    font-size: 15px;
+  }
+}
+
