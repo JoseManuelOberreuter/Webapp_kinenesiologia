@@ -72,7 +72,7 @@
                     <label for="name">Nombre completo</label>
                   </div>
                   <div class="form-floating mb-3">
-                    <input class="form-control" id="email" type="email" placeholder="nombre@ejemplo.com"/>
+                    <input class="form-control" id="email" type="email" placeholder="ejemplo: kine.paulaaraya@gmail.com"/>
                     <label for="email">Correo electrónico</label>
                   </div>
                   <div class="form-floating mb-3">
@@ -119,9 +119,9 @@
                   <i class="bi bi-telephone"></i>
                   +56 9 9282 6286
                 </a>
-                <a href="mailto:contacto@paulaarayakine.cl" class="footer-link">
+                <a href="mailto:kine.paulaaraya@gmail.com" class="footer-link">
                   <i class="bi bi-envelope"></i>
-                  contacto@paulaarayakine.cl
+                  kine.paulaaraya@gmail.com
                 </a>
               </div>
               <div class="footer-social">

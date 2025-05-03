@@ -152,9 +152,9 @@
                   <i class="bi bi-telephone"></i>
                   +56 9 9282 6286
                 </a>
-                <a href="mailto:contacto@paulaarayakine.cl" class="footer-link">
+                <a href="mailto:kine.paulaaraya@gmail.com" class="footer-link">
                   <i class="bi bi-envelope"></i>
-                  contacto@paulaarayakine.cl
+                  kine.paulaaraya@gmail.com
                 </a>
               </div>
               <div class="footer-social">
