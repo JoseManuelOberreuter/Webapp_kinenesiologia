@@ -3,46 +3,58 @@
     <Navbar />
 
     <!-- Contact Section-->
-    <section class="py-5">
-      <div class="container px-5">
-        <div class="row gx-5 justify-content-center">
+    <section class="contact-section">
+      <div class="container px-3 px-sm-5">
+        <div class="row gx-3 gx-sm-5 justify-content-center">
           <div class="col-lg-8">
-            <div class="text-center mb-5">
+            <div class="text-center mb-4 mb-sm-5">
               <h1 class="display-5 fw-bolder mb-0">
                 <span class="text-gradient d-inline">Agenda tu Consulta</span>
               </h1>
             </div>
           </div>
         </div>
-        <div class="row gx-5 justify-content-center">
-          <div class="col-lg-6 col-xl-4 mb-5">
+        <div class="row gx-3 gx-sm-5 justify-content-center">
+          <div class="col-lg-6 col-xl-4 mb-4 mb-lg-0">
             <div class="card contact-info-card">
-              <div class="card-body p-4">
-                <div class="info-icon mb-4">
-                  <i class="bi bi-clock"></i>
+              <div class="card-body p-3 p-sm-4">
+                <div class="info-item">
+                  <div class="info-icon">
+                    <i class="bi bi-clock"></i>
+                  </div>
+                  <div class="info-content">
+                    <div class="fw-bolder">Horario de Atención</div>
+                    <div class="text-muted">Lunes a Viernes</div>
+                    <div class="text-muted">9:00 - 19:00 hrs</div>
+                  </div>
                 </div>
-                <div class="small fw-bolder">Horario de Atención</div>
-                <div class="small text-muted">Lunes a Viernes</div>
-                <div class="small text-muted mb-4">9:00 - 19:00 hrs</div>
                 
-                <div class="info-icon mb-4">
-                  <i class="bi bi-geo-alt"></i>
+                <div class="info-item">
+                  <div class="info-icon">
+                    <i class="bi bi-geo-alt"></i>
+                  </div>
+                  <div class="info-content">
+                    <div class="fw-bolder">Atención a Domicilio en:</div>
+                    <div class="text-muted">Providencia, Ñuñoa, La Reina</div>
+                    <div class="text-muted">Las Condes, Santiago, Peñalolen</div>
+                  </div>
                 </div>
-                <div class="small fw-bolder">Atención a Domicilio en:</div>
-                <div class="small text-muted">Providencia, Ñuñoa, La Reina</div>
-                <div class="small text-muted">Las Condes, Santiago, Peñalolen</div>
                 
-                <div class="info-icon mb-4 mt-4">
-                  <i class="bi bi-shield-check"></i>
+                <div class="info-item">
+                  <div class="info-icon">
+                    <i class="bi bi-shield-check"></i>
+                  </div>
+                  <div class="info-content">
+                    <div class="fw-bolder">Convenios</div>
+                    <div class="text-muted">Reembolso con todas las Isapres</div>
+                  </div>
                 </div>
-                <div class="small fw-bolder">Convenios</div>
-                <div class="small text-muted">Reembolso con todas las Isapres</div>
               </div>
             </div>
           </div>
           <div class="col-lg-6 col-xl-8">
             <div class="card contact-form-card">
-              <div class="card-body p-4">
+              <div class="card-body p-3 p-sm-4">
                 <form id="contactForm">
                   <div class="form-floating mb-3">
                     <input class="form-control" id="name" type="text" placeholder="Ingresa tu nombre"/>
@@ -109,12 +121,17 @@ export default {
   background-clip: text;
 }
 
+.contact-section {
+  padding: 5rem 0 3rem;
+  margin-top: 70px;
+}
+
 /* Contact form styles */
 .contact-info-card,
 .contact-form-card {
   border: none;
   border-radius: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
   height: 100%;
 }
@@ -124,20 +141,35 @@ export default {
   box-shadow: 0 20px 40px rgba(37, 99, 235, 0.1);
 }
 
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.info-item:last-child {
+  margin-bottom: 0;
+}
+
 .info-icon {
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
+  min-width: 45px;
   background: linear-gradient(135deg, #2563eb, #3b82f6);
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1rem;
+  margin-right: 1rem;
 }
 
 .info-icon i {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: white;
+}
+
+.info-content {
+  flex: 1;
 }
 
 .form-control,
@@ -174,13 +206,125 @@ export default {
   box-shadow: 0 6px 8px rgba(37, 99, 235, 0.2);
 }
 
-section {
-  padding-top: 5rem;
+@media (max-width: 991px) {
+  .contact-section {
+    padding: 4.5rem 0 2.5rem;
+  }
+
+  .contact-info-card, 
+  .contact-form-card {
+    border-radius: 16px;
+  }
+  
+  .info-icon {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+  }
 }
 
 @media (max-width: 768px) {
+  .contact-section {
+    padding: 4rem 0 2rem;
+    margin-top: 60px;
+  }
+  
   .contact-info-card {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .info-item {
+    margin-bottom: 1.25rem;
+  }
+  
+  .form-floating label {
+    padding: 0.8rem 1rem;
+  }
+  
+  .display-5 {
+    font-size: calc(1.4rem + 1.5vw);
+  }
+  
+  .form-floating > .form-control,
+  .form-floating > .form-select {
+    height: calc(3.2rem + 2px);
+    padding: 0.8rem 1rem;
+  }
+  
+  .form-floating > textarea.form-control {
+    height: 10rem;
+    min-height: 10rem;
+  }
+  
+  .info-content .fw-bolder {
+    font-size: 0.95rem;
+  }
+  
+  .text-muted {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .contact-section {
+    padding: 3.5rem 0 1.5rem;
+    margin-top: 56px;
+  }
+  
+  .contact-info-card,
+  .contact-form-card {
+    border-radius: 14px;
+  }
+  
+  .info-icon {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    border-radius: 10px;
+    margin-right: 0.75rem;
+  }
+  
+  .info-icon i {
+    font-size: 1.1rem;
+  }
+  
+  .display-5 {
+    font-size: calc(1.3rem + 1vw);
+  }
+  
+  .form-floating {
+    margin-bottom: 0.75rem !important;
+  }
+  
+  .btn-primary {
+    padding: 0.875rem;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 400px) {
+  .contact-section {
+    padding: 3rem 0 1rem;
+  }
+  
+  .info-item {
+    margin-bottom: 1rem;
+  }
+  
+  .info-content .fw-bolder {
+    font-size: 0.9rem;
+  }
+  
+  .text-muted {
+    font-size: 0.85rem;
+  }
+  
+  .display-5 {
+    font-size: 1.5rem;
+  }
+  
+  .btn-primary {
+    font-size: 0.95rem;
   }
 }
 </style> 

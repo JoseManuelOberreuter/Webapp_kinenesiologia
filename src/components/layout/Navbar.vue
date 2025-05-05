@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-white">
-    <div class="container px-5">
+    <div class="container px-3 px-sm-5">
       <router-link class="navbar-brand" to="/">
         <span class="fw-bolder">Paula Araya Kinesiología</span>
       </router-link>
@@ -8,7 +8,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto mb-lg-0">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <router-link class="nav-link" to="/">Inicio</router-link>
           </li>
@@ -40,6 +40,7 @@ export default {
   top: 0;
   z-index: 1000;
   transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .navbar-brand {
@@ -75,5 +76,49 @@ export default {
 
 .nav-link:hover::after {
   width: 100%;
+}
+
+/* Media queries para responsividad */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  .nav-link {
+    padding: 0.75rem 0;
+  }
+  
+  .nav-link::after {
+    bottom: 0;
+    left: 0;
+    transform: none;
+  }
+  
+  .nav-link:hover::after {
+    width: 50px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .navbar-brand {
+    font-size: 1rem;
+  }
+  
+  .container {
+    padding: 0 0.75rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .navbar-brand span {
+    max-width: 200px;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 </style> 

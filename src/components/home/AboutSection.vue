@@ -1,8 +1,8 @@
 <template>
   <section class="about-section">
-    <div class="container px-5">
-      <div class="row gx-5 justify-content-center">
-        <div class="col-xxl-8">
+    <div class="container px-3 px-sm-5">
+      <div class="row gx-3 gx-sm-5 justify-content-center">
+        <div class="col-xxl-8 col-lg-10">
           <div class="about-container">
             <h2 class="section-title">Sobre mi</h2>
             <div class="about-content">
@@ -30,10 +30,10 @@
               </ul>
             </div>
             <div class="social-links">
-              <a href="https://instagram.com/kine.paularaya" target="_blank" class="social-link">
+              <a href="https://instagram.com/kine.paularaya" target="_blank" class="social-link" aria-label="Instagram">
                 <i class="bi bi-instagram"></i>
               </a>
-              <a href="https://www.tiktok.com/@paula.kineadomicilio" target="_blank" class="social-link">
+              <a href="https://www.tiktok.com/@paula.kineadomicilio" target="_blank" class="social-link" aria-label="TikTok">
                 <i class="bi bi-tiktok"></i>
               </a>
             </div>
@@ -154,24 +154,141 @@ export default {
   box-shadow: 0 10px 20px rgba(37, 99, 235, 0.1);
 }
 
+@media (max-width: 991px) {
+  .about-container {
+    padding: 2.5rem;
+  }
+  
+  .section-title {
+    font-size: 2.25rem;
+  }
+  
+  .about-text {
+    font-size: 1.05rem;
+  }
+}
+
 @media (max-width: 768px) {
+  .about-section {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+  
   .about-container {
     padding: 2rem;
-    margin: 0 1rem;
+    margin: 0 0.5rem;
+    border-radius: 20px;
   }
 
   .section-title {
     font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .section-title::after {
+    width: 50px;
+    height: 3px;
+    bottom: -8px;
   }
 
   .about-text {
     font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+  }
+  
+  .about-content {
+    margin-top: 1.5rem;
   }
 
+  .social-links {
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+  
   .social-link {
     font-size: 1.5rem;
     width: 50px;
     height: 50px;
+    padding: 0.85rem;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-section {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+  .about-container {
+    padding: 1.5rem;
+    margin: 0;
+    border-radius: 16px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  }
+  
+  .section-title {
+    font-size: 1.75rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .section-title::after {
+    width: 40px;
+    height: 3px;
+  }
+  
+  .about-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  
+  .diplomas-list li {
+    font-size: 0.95rem;
+    margin-bottom: 0.65rem;
+    padding-left: 1.25rem;
+  }
+  
+  .highlight-text {
+    padding: 0.15rem 0.25rem;
+  }
+  
+  .social-links {
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+  
+  .social-link {
+    font-size: 1.35rem;
+    width: 45px;
+    height: 45px;
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .about-container {
+    padding: 1.25rem;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .about-text, .diplomas-list li {
+    font-size: 0.9rem;
+  }
+  
+  .social-link {
+    font-size: 1.25rem;
+    width: 40px;
+    height: 40px;
+    padding: 0.65rem;
+  }
+  
+  .social-links {
+    gap: 1rem;
   }
 }
 </style> 

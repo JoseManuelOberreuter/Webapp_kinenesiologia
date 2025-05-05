@@ -3,15 +3,15 @@
     <Navbar />
     
     <!-- Treatments Section-->
-    <section class="py-5">
-      <div class="container px-5">
-        <h1 class="display-5 fw-bolder text-center mb-5">
+    <section class="treatments-section">
+      <div class="container px-3 px-sm-5">
+        <h1 class="display-5 fw-bolder text-center mb-4 mb-sm-5">
           <span class="text-gradient d-inline">Tratamientos</span>
         </h1>
         
-        <div class="row g-5">
+        <div class="row g-3 g-sm-4 g-md-5">
           <!-- Rehabilitación Traumatológica -->
-          <div class="col-lg-6">
+          <div class="col-md-6">
             <div class="treatment-card">
               <div class="treatment-icon">
                 <i class="bi bi-bandaid-fill"></i>
@@ -31,7 +31,7 @@
           </div>
 
           <!-- Rehabilitación Neurológica -->
-          <div class="col-lg-6">
+          <div class="col-md-6">
             <div class="treatment-card">
               <div class="treatment-icon">
                 <i class="bi bi-activity"></i>
@@ -51,7 +51,7 @@
           </div>
 
           <!-- Rehabilitación Adulto Mayor -->
-          <div class="col-lg-6">
+          <div class="col-md-6">
             <div class="treatment-card">
               <div class="treatment-icon">
                 <i class="bi bi-heart-pulse-fill"></i>
@@ -71,7 +71,7 @@
           </div>
 
           <!-- Clases de Prevención -->
-          <div class="col-lg-6">
+          <div class="col-md-6">
             <div class="treatment-card">
               <div class="treatment-icon">
                 <i class="bi bi-shield-fill-check"></i>
@@ -95,9 +95,9 @@
 
     <!-- Call to Action Section -->
     <section class="cta-section">
-      <div class="container px-5">
-        <div class="row gx-5 justify-content-center">
-          <div class="col-xxl-8">
+      <div class="container px-3 px-sm-5">
+        <div class="row gx-3 gx-sm-5 justify-content-center">
+          <div class="col-xxl-8 col-lg-10">
             <div class="cta-container">
               <div class="cta-content">
                 <h2 class="cta-title">¿Quieres saber más sobre nuestros tratamientos?</h2>
@@ -141,6 +141,11 @@ export default {
   background-clip: text;
 }
 
+.treatments-section {
+  padding: 5rem 0 2rem;
+  margin-top: 70px;
+}
+
 .treatment-card {
   background: white;
   border-radius: 20px;
@@ -148,7 +153,8 @@ export default {
   height: 100%;
   transition: all 0.3s ease;
   border: 1px solid #e2e8f0;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1rem;
 }
 
 .treatment-card:hover {
@@ -205,19 +211,9 @@ export default {
   box-shadow: 0 6px 8px rgba(37, 99, 235, 0.2);
 }
 
-section {
-  padding-top: 5rem;
-}
-
-@media (max-width: 768px) {
-  .treatment-card {
-    margin-bottom: 2rem;
-  }
-}
-
 /* Call to Action Section */
 .cta-section {
-  padding: 3rem 0;
+  padding: 2rem 0 3rem;
   background: white;
 }
 
@@ -228,12 +224,27 @@ section {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   text-align: center;
   color: white;
-  margin-top: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-container::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  right: -10%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(rgba(255, 255, 255, 0.15), transparent 70%);
+  border-radius: 50%;
+  z-index: 0;
 }
 
 .cta-content {
   max-width: 600px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .cta-title {
@@ -252,6 +263,7 @@ section {
 .cta-button {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   background: white;
   color: #1d4ed8;
@@ -261,11 +273,12 @@ section {
   font-size: 1.1rem;
   transition: all 0.3s ease;
   text-decoration: none;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .cta-button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
   color: #1d4ed8;
 }
 
@@ -277,22 +290,221 @@ section {
   transform: translateX(5px);
 }
 
+@media (max-width: 991px) {
+  .treatments-section {
+    padding: 4.5rem 0 2rem;
+  }
+  
+  .treatment-card {
+    padding: 1.75rem;
+    border-radius: 16px;
+  }
+  
+  .treatment-icon {
+    width: 55px;
+    height: 55px;
+    margin-bottom: 1.25rem;
+  }
+  
+  .cta-container {
+    padding: 3.5rem 3rem;
+  }
+  
+  .cta-title {
+    font-size: 2.25rem;
+  }
+  
+  .display-5 {
+    font-size: calc(1.4rem + 1.5vw);
+  }
+}
+
 @media (max-width: 768px) {
+  .treatments-section {
+    padding: 4rem 0 1.5rem;
+    margin-top: 60px;
+  }
+  
+  .h4 {
+    font-size: 1.25rem;
+  }
+  
+  .treatment-card {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 14px;
+  }
+  
+  .treatment-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+  
+  .treatment-icon i {
+    font-size: 1.5rem;
+  }
+  
+  .treatment-list li {
+    padding-left: 1.25rem;
+    margin-bottom: 0.4rem;
+    font-size: 0.95rem;
+  }
+  
+  .text-muted {
+    font-size: 0.95rem;
+  }
+  
+  .cta-section {
+    padding: 1.5rem 0 2.5rem;
+  }
+  
   .cta-container {
     padding: 3rem 2rem;
+    margin: 0 0.5rem;
+    border-radius: 20px;
   }
 
   .cta-title {
     font-size: 2rem;
+    margin-bottom: 1.25rem;
   }
 
   .cta-text {
     font-size: 1rem;
+    margin-bottom: 1.75rem;
   }
 
   .cta-button {
     padding: 0.875rem 1.75rem;
     font-size: 1rem;
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 576px) {
+  .treatments-section {
+    padding: 3.5rem 0 1rem;
+    margin-top: 56px;
+  }
+  
+  .display-5 {
+    font-size: calc(1.3rem + 1vw);
+  }
+  
+  .h4 {
+    font-size: 1.15rem;
+  }
+  
+  .treatment-card {
+    padding: 1.25rem;
+    border-radius: 12px;
+    margin-bottom: 1.25rem;
+  }
+  
+  .treatment-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+  }
+  
+  .treatment-icon i {
+    font-size: 1.35rem;
+  }
+  
+  .text-muted {
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem !important;
+  }
+  
+  .treatment-list li {
+    font-size: 0.9rem;
+    padding-left: 1.15rem;
+  }
+  
+  .cta-section {
+    padding: 1rem 0 2rem;
+  }
+  
+  .cta-container {
+    padding: 2.5rem 1.5rem;
+    margin: 0;
+    border-radius: 16px;
+  }
+  
+  .cta-title {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+  
+  .cta-text {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+  
+  .cta-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+    width: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  .treatments-section {
+    padding: 3rem 0 0.75rem;
+  }
+  
+  .display-5 {
+    font-size: 1.5rem;
+  }
+  
+  .h4 {
+    font-size: 1.1rem;
+  }
+  
+  .treatment-card {
+    padding: 1rem;
+  }
+  
+  .treatment-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 0.75rem;
+  }
+  
+  .treatment-icon i {
+    font-size: 1.25rem;
+  }
+  
+  .text-muted {
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .treatment-list li {
+    font-size: 0.85rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  .cta-container {
+    padding: 2rem 1.25rem;
+  }
+  
+  .cta-title {
+    font-size: 1.5rem;
+  }
+  
+  .cta-text {
+    font-size: 0.9rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .cta-button {
+    padding: 0.7rem 1.25rem;
+    font-size: 0.9rem;
   }
 }
 </style> 
