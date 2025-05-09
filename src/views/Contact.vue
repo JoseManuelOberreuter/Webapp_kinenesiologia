@@ -55,35 +55,49 @@
           <div class="col-lg-6 col-xl-8">
             <div class="card contact-form-card">
               <div class="card-body p-3 p-sm-4">
-                <form id="contactForm">
+                <div v-if="loading" class="text-center py-4">
+                  <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Enviando...</span>
+                  </div>
+                  <p class="mt-2">Enviando tu mensaje...</p>
+                </div>
+                <div v-else-if="messageSent" class="text-center py-4">
+                  <div class="success-icon mb-3">
+                    <i class="bi bi-check-circle-fill text-success fs-1"></i>
+                  </div>
+                  <h4 class="mb-3">¡Mensaje enviado correctamente!</h4>
+                  <p>Gracias por contactarnos. Nos pondremos en contacto contigo lo antes posible.</p>
+                  <button class="btn btn-outline-primary mt-3" @click="resetForm">Enviar otro mensaje</button>
+                </div>
+                <form v-else id="contactForm" @submit.prevent="sendEmail">
                   <div class="form-floating mb-3">
-                    <input class="form-control" id="name" type="text" placeholder="Ingresa tu nombre"/>
+                    <input class="form-control" id="name" type="text" v-model="form.name" placeholder="Ingresa tu nombre" required/>
                     <label for="name">Nombre completo</label>
                   </div>
                   <div class="form-floating mb-3">
-                    <input class="form-control" id="email" type="email" placeholder="ejemplo: kine.paulaaraya@gmail.com"/>
+                    <input class="form-control" id="email" type="email" v-model="form.email" placeholder="ejemplo: kine.paulaaraya@gmail.com" required/>
                     <label for="email">Correo electrónico</label>
                   </div>
                   <div class="form-floating mb-3">
-                    <input class="form-control" id="phone" type="tel" placeholder="+569XXXXXXXX"/>
+                    <input class="form-control" id="phone" type="tel" v-model="form.phone" placeholder="+569XXXXXXXX" required/>
                     <label for="phone">Teléfono</label>
                   </div>
                   <div class="form-floating mb-3">
-                    <select class="form-select" id="treatment">
+                    <select class="form-select" id="treatment" v-model="form.treatment" required>
                       <option value="" disabled selected>Selecciona un tratamiento</option>
-                      <option value="traumatologia">Rehabilitación Traumatológica</option>
-                      <option value="neurologia">Rehabilitación Neurológica</option>
-                      <option value="adultomayor">Rehabilitación Adulto Mayor</option>
-                      <option value="prevencion">Clases de Prevención</option>
+                      <option value="Rehabilitación Traumatológica">Rehabilitación Traumatológica</option>
+                      <option value="Rehabilitación Neurológica">Rehabilitación Neurológica</option>
+                      <option value="Rehabilitación Adulto Mayor">Rehabilitación Adulto Mayor</option>
+                      <option value="Clases de Prevención">Clases de Prevención</option>
                     </select>
                     <label for="treatment">Tipo de tratamiento</label>
                   </div>
                   <div class="form-floating mb-3">
-                    <textarea class="form-control" id="message" placeholder="Ingresa tu mensaje" style="height: 10rem"></textarea>
+                    <textarea class="form-control" id="message" v-model="form.message" placeholder="Ingresa tu mensaje" style="height: 10rem" required></textarea>
                     <label for="message">Mensaje o consulta</label>
                   </div>
                   <div class="d-grid">
-                    <button class="btn btn-primary btn-lg" type="submit">Enviar Consulta</button>
+                    <button class="btn btn-primary btn-lg" type="submit" :disabled="loading">Enviar Consulta</button>
                   </div>
                 </form>
               </div>
@@ -102,6 +116,7 @@
 import Navbar from '@/components/layout/Navbar.vue'
 import Footer from '@/components/layout/Footer.vue'
 import WhatsAppButton from '@/components/common/WhatsAppButton.vue'
+import emailjs from '@emailjs/browser'
 
 export default {
   name: 'ContactView',
@@ -109,6 +124,72 @@ export default {
     Navbar,
     Footer,
     WhatsAppButton
+  },
+  data() {
+    return {
+      form: {
+        name: '',
+        email: '',
+        phone: '',
+        treatment: '',
+        message: ''
+      },
+      loading: false,
+      messageSent: false,
+      error: null
+    }
+  },
+  mounted() {
+    // Inicializa EmailJS con la clave pública
+    try {
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      emailjs.init(publicKey)
+      console.log('EmailJS inicializado correctamente')
+    } catch (error) {
+      console.error('Error al inicializar EmailJS:', error)
+    }
+  },
+  methods: {
+    sendEmail() {
+      this.loading = true
+      
+      // Prepara los datos para EmailJS
+      const templateParams = {
+        from_name: this.form.name,
+        name: this.form.name,
+        email: this.form.email,
+        phone: this.form.phone,
+        treatment: this.form.treatment,
+        message: this.form.message
+      }
+      
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+      
+      emailjs.send(serviceId, templateId, templateParams)
+        .then((response) => {
+          console.log('SUCCESS!', response.status, response.text)
+          this.loading = false
+          this.messageSent = true
+        })
+        .catch((err) => {
+          console.error('FAILED...', err)
+          this.loading = false
+          this.error = `Error al enviar: ${err.message || 'Error desconocido'}`
+          alert(this.error)
+        });
+    },
+    resetForm() {
+      this.form = {
+        name: '',
+        email: '',
+        phone: '',
+        treatment: '',
+        message: ''
+      }
+      this.messageSent = false
+      this.error = null
+    }
   }
 }
 </script>
@@ -326,5 +407,15 @@ export default {
   .btn-primary {
     font-size: 0.95rem;
   }
+}
+
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+}
+
+.success-icon {
+  font-size: 3rem;
+  color: #10b981;
 }
 </style> 
